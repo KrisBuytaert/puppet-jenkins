@@ -1,6 +1,16 @@
 node 'jenkins_ci' {
 
-	include jenkins 
+  	service { "iptables":
+                ensure => "stopped",
+                enable => "false";
+                }
+	
+	package {"java":
+		name   => "java-1.6.0-openjdk",
+		ensure => "present";
+	}
+
+	include jenkins
 	
 
 }

@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
        jenkins_ci_config.vm.box = "Centos6"
        jenkins_ci_config.ssh.max_tries = 100
        jenkins_ci_config.vm.host_name = "jenkins_ci"
-       jenkins_ci_config.vm.forward_port "http", 80, 8083
+       jenkins_ci_config.vm.forward_port "http", 8080, 8080
        jenkins_ci_config.vm.provision :puppet do |jenkins_ci_puppet|
        		jenkins_ci_puppet.pp_path = "/tmp/vagrant-puppet"
        		jenkins_ci_puppet.manifests_path = "manifests"

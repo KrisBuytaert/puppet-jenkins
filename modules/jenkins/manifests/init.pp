@@ -1,3 +1,22 @@
+
+class jenkins::enabled  {
+ service{"jenkins":
+        ensure => "running" ,
+        enable => "true",
+    }
+}
+
+# EOC jenkins::enabled 
+class jenkins::disabled {
+ service {"jenkins":
+        ensure => "stopped" ,
+        enable => "false",
+    }
+
+}
+# EOC jenkins::disabled 
+
+
 class jenkins::repo {
 
 	yumrepo {
@@ -28,6 +47,7 @@ class jenkins{
 	include jenkins::repo
 	include jenkins::package
 	Class["jenkins::repo"] -> Class["jenkins::package"]
+	include jenkins::enabled 
 
 }
 
