@@ -1,4 +1,4 @@
-node 'jenkins' {
+node 'jenkins_ci' {
 
 	include jenkins 
 	
